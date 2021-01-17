@@ -1,18 +1,24 @@
 module.exports = {
-  root: true,
   env: {
+    browser: true,
     node: true,
   },
   extends: [
-    'plugin:vue/vue3-essential',
-    '@vue/airbnb',
+    'plugin:vue/vue3-recommended',
+    'prettier/vue',
     '@vue/typescript/recommended',
+    'prettier',
+    'plugin:prettier/recommended',
   ],
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 9,
+    sourceType: 'module',
+    parser: '@typescript-eslint/parser',
+    allowImportExportEverywhere: true,
   },
+  plugins: ['import', 'vue'],
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'vue/no-v-html': 'off',
+    'vue/no-unused-components': 'off',
   },
 };
